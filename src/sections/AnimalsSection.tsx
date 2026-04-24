@@ -51,8 +51,11 @@ export default function AnimalsSection() {
           Meet the remarkable species we work to protect every day.
         </p>
 
-        {/* VIOLATION: label — select has no associated <label> element */}
+        {/* Fixed: select-name — added associated <label> for the status filter select */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
+          <label htmlFor="status-filter" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+            Filter by conservation status
+          </label>
           <select
             id="status-filter"
             style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", fontSize: "14px" }}
@@ -70,9 +73,13 @@ export default function AnimalsSection() {
           ))}
         </div>
 
-        {/* VIOLATION: label — search input with no label */}
+        {/* Fixed: label — added visually-hidden label for search input */}
         <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
+          <label htmlFor="animal-search" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+            Search animals
+          </label>
           <input
+            id="animal-search"
             type="search"
             placeholder="Search animals..."
             style={{
@@ -101,9 +108,10 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
       }}
     >
-      {/* VIOLATION: image-alt — img with no alt attribute */}
+      {/* Fixed: image-alt — added descriptive alt text for each animal image */}
       <img
         src={ANIMAL_SVGS[animal.id]}
+        alt={`Illustration of a ${animal.name}`}
         style={{ width: "100%", height: "200px", objectFit: "cover", display: "block" }}
       />
 
@@ -137,9 +145,11 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         </div>
 
         <div style={{ display: "flex", gap: "8px" }}>
-          {/* VIOLATION: button-name — button contains only aria-hidden SVG, no accessible label */}
+          {/* Fixed: button-name — added aria-label to icon-only save button */}
           <button
             onClick={() => setSaved(!saved)}
+            aria-label={saved ? `Remove ${animal.name} from saved` : `Save ${animal.name}`}
+            aria-pressed={saved}
             style={{
               background: saved ? "#2d8a55" : "#f0f7f2",
               border: "none",

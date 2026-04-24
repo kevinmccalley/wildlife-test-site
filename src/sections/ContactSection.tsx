@@ -8,6 +8,18 @@ export default function ContactSection() {
     setSubmitted(true);
   }
 
+  const labelStyle: React.CSSProperties = {
+    position: "absolute",
+    width: "1px",
+    height: "1px",
+    padding: 0,
+    margin: "-1px",
+    overflow: "hidden",
+    clip: "rect(0,0,0,0)",
+    whiteSpace: "nowrap",
+    border: 0,
+  };
+
   return (
     <section id="contact" style={{ padding: "80px 24px", background: "#1a3a2a", color: "#fff" }}>
       <div style={{ maxWidth: "640px", margin: "0 auto" }}>
@@ -26,8 +38,10 @@ export default function ContactSection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {/* VIOLATION: label — input with no associated label (placeholder only) */}
+            {/* Fixed: label — added visually-hidden label for name input */}
+            <label htmlFor="contact-name" style={labelStyle}>Your full name</label>
             <input
+              id="contact-name"
               type="text"
               name="name"
               placeholder="Your full name"
@@ -44,8 +58,10 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: label — input with no associated label (placeholder only) */}
+            {/* Fixed: label — added visually-hidden label for email input */}
+            <label htmlFor="contact-email" style={labelStyle}>Email address</label>
             <input
+              id="contact-email"
               type="email"
               name="email"
               placeholder="Email address"
@@ -62,8 +78,10 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: label — select with no associated label */}
+            {/* Fixed: select-name — added associated label for interest select */}
+            <label htmlFor="contact-interest" style={labelStyle}>How would you like to help?</label>
             <select
+              id="contact-interest"
               name="interest"
               style={{
                 padding: "12px 16px",
@@ -83,8 +101,10 @@ export default function ContactSection() {
               <option value="media">Media & press inquiry</option>
             </select>
 
-            {/* VIOLATION: label — textarea with no associated label (placeholder only) */}
+            {/* Fixed: label — added visually-hidden label for message textarea */}
+            <label htmlFor="contact-message" style={labelStyle}>Your message</label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder="Your message..."
               rows={5}
@@ -101,7 +121,7 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: button-name — submit button contains only an SVG with no text or aria-label */}
+            {/* Fixed: button-name — added visible text to submit button */}
             <button
               type="submit"
               style={{
@@ -119,19 +139,21 @@ export default function ContactSection() {
                 gap: "8px",
               }}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
+              Send Message
             </button>
 
-            {/* VIOLATION: frame-title — iframe embedded with no title attribute */}
+            {/* Fixed: frame-title — added title attribute to iframe */}
             <div style={{ marginTop: "16px", borderRadius: "8px", overflow: "hidden" }}>
               <p style={{ color: "#9ec8b0", fontSize: "14px", marginBottom: "8px" }}>Find us here:</p>
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-2.5%2C51.4%2C-2.3%2C51.5&amp;layer=mapnik"
                 width="100%"
                 height="200"
+                title="Map showing Wildlife Sanctuary location"
                 style={{ border: 0, display: "block" }}
               />
             </div>

@@ -26,7 +26,7 @@ export default function ContactSection() {
         <h2 style={{ fontSize: "36px", fontWeight: "800", marginBottom: "12px", textAlign: "center" }}>
           Get Involved
         </h2>
-        <p style={{ color: "#9ec8b0", fontSize: "16px", textAlign: "center", marginBottom: "40px" }}>
+        <p style={{ color: "#c8e8d4", fontSize: "16px", textAlign: "center", marginBottom: "40px" }}>
           Volunteer with us, sponsor an animal, or just say hello. Every message matters.
         </p>
 
@@ -34,7 +34,7 @@ export default function ContactSection() {
           <div style={{ textAlign: "center", padding: "40px", background: "#0d2b1a", borderRadius: "12px" }}>
             <p style={{ fontSize: "24px", marginBottom: "8px" }}>🌿</p>
             <p style={{ fontSize: "18px", fontWeight: "600" }}>Thank you for reaching out!</p>
-            <p style={{ color: "#9ec8b0", marginTop: "8px" }}>We'll be in touch within 2 business days.</p>
+            <p style={{ color: "#c8e8d4", marginTop: "8px" }}>We'll be in touch within 2 business days.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -98,7 +98,7 @@ export default function ContactSection() {
               <option value="volunteer">Volunteer on-site</option>
               <option value="sponsor">Sponsor an animal</option>
               <option value="donate">Make a donation</option>
-              <option value="media">Media & press inquiry</option>
+              <option value="media">Media &amp; press inquiry</option>
             </select>
 
             {/* Fixed: label — added visually-hidden label for message textarea */}
@@ -125,7 +125,7 @@ export default function ContactSection() {
             <button
               type="submit"
               style={{
-                background: "#2d8a55",
+                background: "#1a5c35",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",
@@ -148,7 +148,7 @@ export default function ContactSection() {
 
             {/* Fixed: frame-title — added title attribute to iframe */}
             <div style={{ marginTop: "16px", borderRadius: "8px", overflow: "hidden" }}>
-              <p style={{ color: "#9ec8b0", fontSize: "14px", marginBottom: "8px" }}>Find us here:</p>
+              <p style={{ color: "#c8e8d4", fontSize: "14px", marginBottom: "8px" }}>Find us here:</p>
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-2.5%2C51.4%2C-2.3%2C51.5&amp;layer=mapnik"
                 width="100%"

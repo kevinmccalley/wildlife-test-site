@@ -14,7 +14,7 @@ export default function ContactSection() {
         <h2 style={{ fontSize: "36px", fontWeight: "800", marginBottom: "12px", textAlign: "center" }}>
           Get Involved
         </h2>
-        <p style={{ color: "#9ec8b0", fontSize: "16px", textAlign: "center", marginBottom: "40px" }}>
+        <p style={{ color: "#cde8d8", fontSize: "16px", textAlign: "center", marginBottom: "40px" }}>
           Volunteer with us, sponsor an animal, or just say hello. Every message matters.
         </p>
 
@@ -27,7 +27,11 @@ export default function ContactSection() {
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {/* VIOLATION: label — input with no associated label (placeholder only) */}
+            <label htmlFor="contact-name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+              Your full name
+            </label>
             <input
+              id="contact-name"
               type="text"
               name="name"
               placeholder="Your full name"
@@ -45,7 +49,11 @@ export default function ContactSection() {
             />
 
             {/* VIOLATION: label — input with no associated label (placeholder only) */}
+            <label htmlFor="contact-email" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+              Email address
+            </label>
             <input
+              id="contact-email"
               type="email"
               name="email"
               placeholder="Email address"
@@ -63,7 +71,11 @@ export default function ContactSection() {
             />
 
             {/* VIOLATION: label — select with no associated label */}
+            <label htmlFor="contact-interest" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+              How would you like to help?
+            </label>
             <select
+              id="contact-interest"
               name="interest"
               style={{
                 padding: "12px 16px",
@@ -84,7 +96,11 @@ export default function ContactSection() {
             </select>
 
             {/* VIOLATION: label — textarea with no associated label (placeholder only) */}
+            <label htmlFor="contact-message" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+              Your message
+            </label>
             <textarea
+              id="contact-message"
               name="message"
               placeholder="Your message..."
               rows={5}
@@ -104,6 +120,7 @@ export default function ContactSection() {
             {/* VIOLATION: button-name — submit button contains only an SVG with no text or aria-label */}
             <button
               type="submit"
+              aria-label="Send message"
               style={{
                 background: "#2d8a55",
                 color: "#fff",
@@ -119,7 +136,7 @@ export default function ContactSection() {
                 gap: "8px",
               }}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
@@ -127,9 +144,10 @@ export default function ContactSection() {
 
             {/* VIOLATION: frame-title — iframe embedded with no title attribute */}
             <div style={{ marginTop: "16px", borderRadius: "8px", overflow: "hidden" }}>
-              <p style={{ color: "#9ec8b0", fontSize: "14px", marginBottom: "8px" }}>Find us here:</p>
+              <p style={{ color: "#cde8d8", fontSize: "14px", marginBottom: "8px" }}>Find us here:</p>
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-2.5%2C51.4%2C-2.3%2C51.5&amp;layer=mapnik"
+                title="Map showing Wildlife Sanctuary location"
                 width="100%"
                 height="200"
                 style={{ border: 0, display: "block" }}

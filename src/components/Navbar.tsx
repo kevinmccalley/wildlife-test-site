@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   function handleMenuKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Escape") {
       setMenuOpen(false);
+      menuButtonRef.current?.focus();
     }
   }
 
@@ -13,9 +15,17 @@ export default function Navbar() {
     <>
       <a
         href="#main-content"
-        style={{ position: "absolute", left: "-9999px" }}
-        onFocus={e => (e.currentTarget.style.left = "0")}
-        onBlur={e => (e.currentTarget.style.left = "-9999px")}
+        style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+        onFocus={e => {
+          e.currentTarget.style.left = "0";
+          e.currentTarget.style.width = "auto";
+          e.currentTarget.style.height = "auto";
+        }}
+        onBlur={e => {
+          e.currentTarget.style.left = "-9999px";
+          e.currentTarget.style.width = "1px";
+          e.currentTarget.style.height = "1px";
+        }}
       >
         Skip to main content
       </a>
@@ -36,8 +46,9 @@ export default function Navbar() {
           </a>
 
           {/* VIOLATION fixed: button-name — added aria-label for menu toggle button */}
-          {/* VIOLATION fixed: kb-focus-trap — added onKeyDown Escape handler to close menu */}
+          {/* VIOLATION fixed: kb-focus-trap — added onKeyDown Escape handler to close menu and return focus to trigger */}
           <button
+            ref={menuButtonRef}
             onClick={() => setMenuOpen(!menuOpen)}
             onKeyDown={handleMenuKeyDown}
             aria-label={menuOpen ? "Close menu" : "Open menu"}

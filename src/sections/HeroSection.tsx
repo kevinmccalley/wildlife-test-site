@@ -10,12 +10,12 @@ export default function HeroSection() {
       />
 
       <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px", maxWidth: "720px" }}>
-        {/* VIOLATION fixed: color-contrast (Needs Review) — added text-shadow for legibility over variable background image */}
-        <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px", textShadow: "0 1px 4px rgba(0,0,0,0.7)" }}>
+        {/* VIOLATION fixed: color-contrast (Needs Review) — added stronger text-shadow and confirmed white text on dark overlay */}
+        <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px", textShadow: "0 1px 6px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.7)" }}>
           Protecting Wildlife, One Species at a Time
         </h1>
-        {/* VIOLATION fixed: color-contrast (Needs Review) — changed color from #cde8d8 to #ffffff for guaranteed contrast, kept text-shadow for depth */}
-        <p style={{ color: "#fff", fontSize: "18px", lineHeight: "1.6", marginBottom: "32px", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}>
+        {/* VIOLATION fixed: color-contrast (Needs Review) — strengthened text-shadow for paragraph over background image */}
+        <p style={{ color: "#fff", fontSize: "18px", lineHeight: "1.6", marginBottom: "32px", textShadow: "0 1px 6px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.7)" }}>
           We rescue, rehabilitate, and advocate for endangered animals across Africa and the world&#39;s oceans.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -25,10 +25,11 @@ export default function HeroSection() {
           >
             Meet Our Animals
           </a>
-          {/* VIOLATION fixed: color-contrast (Needs Review) — Donate Now button has white text/border on #0d2b1a background; added text-shadow to improve contrast over image */}
+          {/* VIOLATION fixed: color-contrast (Needs Review) — added solid semi-transparent background and stronger text-shadow
+              to ensure white text on the Donate Now ghost button has sufficient contrast over the variable background image */}
           <a
             href="/donate"
-            style={{ background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
+            style={{ background: "rgba(0,0,0,0.45)", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px", textShadow: "0 1px 4px rgba(0,0,0,0.8)" }}
           >
             Donate Now
           </a>

@@ -15,8 +15,9 @@ const ANIMALS = [
     id: "aardvark",
     name: "Aardvark",
     status: "Least Concern",
+    // VIOLATION fixed: color-contrast-enhanced — darkened badge colors for AAA contrast on rgba(45,138,85,0.133) background
     statusColor: "#2d8a55",
-    statusTextColor: "#1a5c35",
+    statusTextColor: "#0d3d1f",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -25,8 +26,9 @@ const ANIMALS = [
     id: "rhino",
     name: "White Rhinoceros",
     status: "Near Threatened",
+    // VIOLATION fixed: color-contrast-enhanced — darkened badge colors for AAA contrast on rgba(196,125,14,0.133) background
     statusColor: "#c47d0e",
-    statusTextColor: "#7a4d00",
+    statusTextColor: "#4a2e00",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",
@@ -123,7 +125,7 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
           <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1a3a2a", margin: 0 }}>
             {animal.name}
           </h3>
-          {/* VIOLATION fixed: color-contrast — using darker statusTextColor for badge text */}
+          {/* VIOLATION fixed: color-contrast-enhanced — using darker statusTextColor for badge text */}
           <span
             style={{
               fontSize: "12px",

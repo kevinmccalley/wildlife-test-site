@@ -3,6 +3,12 @@ import { useState } from "react";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  function handleMenuKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Escape") {
+      setMenuOpen(false);
+    }
+  }
+
   return (
     <>
       <a
@@ -30,8 +36,10 @@ export default function Navbar() {
           </a>
 
           {/* VIOLATION fixed: button-name — added aria-label for menu toggle button */}
+          {/* VIOLATION fixed: kb-focus-trap — added onKeyDown Escape handler to close menu */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
+            onKeyDown={handleMenuKeyDown}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: "8px", display: "flex", alignItems: "center" }}
@@ -45,7 +53,10 @@ export default function Navbar() {
         </div>
 
         {menuOpen && (
-          <div style={{ position: "absolute", top: "64px", right: "24px", background: "#1a3a2a", padding: "16px", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px", zIndex: 10 }}>
+          <div
+            onKeyDown={handleMenuKeyDown}
+            style={{ position: "absolute", top: "64px", right: "24px", background: "#1a3a2a", padding: "16px", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px", zIndex: 10 }}
+          >
             <a href="#animals" style={{ color: "#cde8d8" }}>Animals</a>
             <a href="#contact" style={{ color: "#cde8d8" }}>Contact Us</a>
 

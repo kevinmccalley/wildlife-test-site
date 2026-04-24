@@ -13,15 +13,16 @@ export default function App() {
           position: "absolute",
           left: "-9999px",
           top: "8px",
-          width: "1px",
-          height: "1px",
+          width: "auto",
+          height: "auto",
           overflow: "hidden",
+          clip: "rect(1px,1px,1px,1px)",
+          whiteSpace: "nowrap",
           zIndex: 9999,
         }}
         onFocus={(e) => {
           e.currentTarget.style.left = "8px";
-          e.currentTarget.style.width = "auto";
-          e.currentTarget.style.height = "auto";
+          e.currentTarget.style.clip = "auto";
           e.currentTarget.style.overflow = "visible";
           e.currentTarget.style.background = "#fff";
           e.currentTarget.style.color = "#1a3a2a";
@@ -31,8 +32,7 @@ export default function App() {
         }}
         onBlur={(e) => {
           e.currentTarget.style.left = "-9999px";
-          e.currentTarget.style.width = "1px";
-          e.currentTarget.style.height = "1px";
+          e.currentTarget.style.clip = "rect(1px,1px,1px,1px)";
           e.currentTarget.style.overflow = "hidden";
           e.currentTarget.style.background = "";
           e.currentTarget.style.color = "";

@@ -16,8 +16,8 @@ const ANIMALS = [
     name: "Aardvark",
     status: "Least Concern",
     statusColor: "#2d8a55",
-    statusTextColor: "#1a5c35",
-    statusBg: "#d4edda",
+    statusTextColor: "#0f3d20",
+    statusBg: "#b6dfc2",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -27,8 +27,8 @@ const ANIMALS = [
     name: "White Rhinoceros",
     status: "Near Threatened",
     statusColor: "#c47d0e",
-    statusTextColor: "#7a4e00",
-    statusBg: "#fdefc8",
+    statusTextColor: "#4a2d00",
+    statusBg: "#f5d680",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",

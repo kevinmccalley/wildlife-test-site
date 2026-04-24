@@ -1,7 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    // Focus the first focusable element in the dialog when it opens
+    const focusable = dialog.querySelectorAll<HTMLElement>(
+      'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (first) first.focus();
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      if (focusable.length === 0) {
+        e.preventDefault();
+        return;
+      }
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   return (
     <nav style={{ background: "#1a3a2a", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px", position: "relative" }}>
@@ -22,9 +69,11 @@ export default function Navbar() {
 
         {/* Fixed: button-name — added aria-label to icon-only menu button */}
         <button
+          ref={menuButtonRef}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
+          aria-controls="nav-menu-dialog"
           style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: "8px", display: "flex", alignItems: "center" }}
         >
           <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -37,6 +86,8 @@ export default function Navbar() {
 
       {menuOpen && (
         <div
+          ref={dialogRef}
+          id="nav-menu-dialog"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"

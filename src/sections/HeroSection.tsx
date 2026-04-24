@@ -9,6 +9,9 @@ export default function HeroSection() {
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }}
       />
 
+      {/* Fixed: color-contrast — added dark overlay behind text content to ensure sufficient contrast for h1, p, and Donate link */}
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 0 }} aria-hidden="true" />
+
       <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px", maxWidth: "720px" }}>
         <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px", textShadow: "0 1px 4px rgba(0,0,0,0.7)" }}>
           Protecting Wildlife, One Species at a Time
@@ -26,7 +29,7 @@ export default function HeroSection() {
           {/* Fixed: link-name — added visible text to the empty donate link */}
           <a
             href="/donate"
-            style={{ background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
+            style={{ background: "rgba(0,0,0,0.45)", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
           >
             Donate
           </a>

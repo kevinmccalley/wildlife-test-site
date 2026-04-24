@@ -23,7 +23,7 @@ export default function ContactSection() {
           <div style={{ textAlign: "center", padding: "40px", background: "#0d2b1a", borderRadius: "12px" }}>
             <p style={{ fontSize: "24px", marginBottom: "8px" }}>🌿</p>
             <p style={{ fontSize: "18px", fontWeight: "600" }}>Thank you for reaching out!</p>
-            <p style={{ color: "#9ec8b0", marginTop: "8px" }}>We'll be in touch within 2 business days.</p>
+            <p style={{ color: "#9ec8b0", marginTop: "8px" }}>We&#39;ll be in touch within 2 business days.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -93,7 +93,7 @@ export default function ContactSection() {
               <option value="volunteer">Volunteer on-site</option>
               <option value="sponsor">Sponsor an animal</option>
               <option value="donate">Make a donation</option>
-              <option value="media">Media & press inquiry</option>
+              <option value="media">Media &amp; press inquiry</option>
             </select>
 
             {/* VIOLATION fixed: label — added visually-hidden label for message textarea */}
@@ -118,11 +118,11 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION fixed: button-name — added text content to submit button */}
+            {/* VIOLATION fixed: color-contrast — darkened submit button background from #2d8a55 to #1a6640 for AA contrast of white text */}
             <button
               type="submit"
               style={{
-                background: "#2d8a55",
+                background: "#1a6640",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

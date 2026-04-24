@@ -24,7 +24,7 @@ const ANIMALS = [
   {
     id: "sea-turtle",
     name: "Leatherback Sea Turtle",
-    image: "https://loremflickr.com/400/300/sea-turtle",
+    image: "https://loremflickr.com/400/300/sea-turtle,ocean",
     status: "Vulnerable",
     statusColor: "#b94444",
     description:
@@ -34,36 +34,49 @@ const ANIMALS = [
 ];
 
 export default function AnimalsSection() {
-  const [filter, setFilter] = useState("all");
-
   return (
-    <section id="animals" style={{ padding: "80px 24px", background: "#f5f9f6", maxWidth: "1100px", margin: "0 auto" }}>
-      <h2 style={{ textAlign: "center", fontSize: "36px", fontWeight: "800", color: "#1a3a2a", marginBottom: "12px" }}>
-        Our Animals
-      </h2>
-      <p style={{ textAlign: "center", color: "#4a7060", fontSize: "16px", marginBottom: "40px" }}>
-        Meet the remarkable species we work to protect every day.
-      </p>
+    <section id="animals" style={{ padding: "80px 24px", background: "#f5f9f6" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <h2 style={{ textAlign: "center", fontSize: "36px", fontWeight: "800", color: "#1a3a2a", marginBottom: "12px" }}>
+          Our Animals
+        </h2>
+        <p style={{ textAlign: "center", color: "#4a7060", fontSize: "16px", marginBottom: "24px" }}>
+          Meet the remarkable species we work to protect every day.
+        </p>
 
-      {/* VIOLATION: label — select has no associated label element */}
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
-        <select
-          id="status-filter"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", fontSize: "14px" }}
-        >
-          <option value="all">All conservation statuses</option>
-          <option value="concern">Least Concern</option>
-          <option value="threatened">Near Threatened</option>
-          <option value="vulnerable">Vulnerable</option>
-        </select>
-      </div>
+        {/* VIOLATION: label — select has no associated <label> element */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
+          <select
+            id="status-filter"
+            style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", fontSize: "14px" }}
+          >
+            <option value="all">All conservation statuses</option>
+            <option value="concern">Least Concern</option>
+            <option value="threatened">Near Threatened</option>
+            <option value="vulnerable">Vulnerable</option>
+          </select>
+        </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "28px" }}>
-        {ANIMALS.map((animal) => (
-          <AnimalCard key={animal.id} animal={animal} />
-        ))}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "28px" }}>
+          {ANIMALS.map((animal) => (
+            <AnimalCard key={animal.id} animal={animal} />
+          ))}
+        </div>
+
+        {/* VIOLATION: label — search input with no label */}
+        <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
+          <input
+            type="search"
+            placeholder="Search animals..."
+            style={{
+              padding: "10px 16px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              fontSize: "15px",
+              width: "300px",
+            }}
+          />
+        </div>
       </div>
     </section>
   );
@@ -81,7 +94,7 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
       }}
     >
-      {/* VIOLATION: image-alt — each animal card has an img with no alt attribute */}
+      {/* VIOLATION: image-alt — img with no alt attribute */}
       <img
         src={animal.image}
         style={{ width: "100%", height: "200px", objectFit: "cover", display: "block" }}
@@ -117,7 +130,7 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         </div>
 
         <div style={{ display: "flex", gap: "8px" }}>
-          {/* VIOLATION: button-name — icon-only button with no accessible label */}
+          {/* VIOLATION: button-name — button contains only aria-hidden SVG, no accessible label */}
           <button
             onClick={() => setSaved(!saved)}
             style={{
@@ -126,10 +139,13 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
               borderRadius: "6px",
               padding: "8px 10px",
               cursor: "pointer",
-              fontSize: "16px",
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            {saved ? "♥" : "♡"}
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill={saved ? "white" : "none"} stroke={saved ? "white" : "#2d6e48"} strokeWidth="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
           </button>
 
           <a

@@ -1,10 +1,19 @@
 import { useState } from "react";
 
+// Inline SVG placeholders — no external image requests so networkidle is reached quickly
+const ANIMAL_SVGS: Record<string, string> = {
+  aardvark:
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23c8a97e' width='400' height='200'/%3E%3Cellipse cx='200' cy='130' rx='90' ry='55' fill='%23a07850'/%3E%3Cellipse cx='290' cy='110' rx='30' ry='20' fill='%23a07850'/%3E%3Cellipse cx='320' cy='95' rx='8' ry='22' fill='%238b6340'/%3E%3Ccircle cx='305' cy='108' r='5' fill='%23333'/%3E%3Cellipse cx='140' cy='175' rx='15' ry='8' fill='%238b6340'/%3E%3Cellipse cx='170' cy='178' rx='15' ry='8' fill='%238b6340'/%3E%3Cellipse cx='230' cy='178' rx='15' ry='8' fill='%238b6340'/%3E%3Cellipse cx='260' cy='175' rx='15' ry='8' fill='%238b6340'/%3E%3C/svg%3E",
+  rhino:
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%238fa89e' width='400' height='200'/%3E%3Cellipse cx='200' cy='130' rx='110' ry='60' fill='%236e8880'/%3E%3Cellipse cx='310' cy='115' rx='45' ry='35' fill='%236e8880'/%3E%3Crect x='305' y='85' width='10' height='25' fill='%234a5c58' rx='3'/%3E%3Ccircle cx='330' cy='110' r='6' fill='%23333'/%3E%3Cellipse cx='130' cy='175' rx='18' ry='10' fill='%235a706a'/%3E%3Cellipse cx='165' cy='178' rx='18' ry='10' fill='%235a706a'/%3E%3Cellipse cx='235' cy='178' rx='18' ry='10' fill='%235a706a'/%3E%3Cellipse cx='270' cy='175' rx='18' ry='10' fill='%235a706a'/%3E%3C/svg%3E",
+  "sea-turtle":
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%2327648a' width='400' height='200'/%3E%3Cellipse cx='200' cy='115' rx='80' ry='55' fill='%233d8c5e'/%3E%3Cellipse cx='200' cy='115' rx='60' ry='42' fill='%232d7a50'/%3E%3Ccircle cx='290' cy='95' rx='22' ry='14' fill='%233d8c5e'/%3E%3Ccircle cx='305' cy='92' r='4' fill='%23111'/%3E%3Cellipse cx='130' cy='105' rx='35' ry='12' fill='%233d8c5e' transform='rotate(-20 130 105)'/%3E%3Cellipse cx='270' cy='105' rx='35' ry='12' fill='%233d8c5e' transform='rotate(20 270 105)'/%3E%3Cellipse cx='145' cy='155' rx='25' ry='10' fill='%233d8c5e' transform='rotate(15 145 155)'/%3E%3Cellipse cx='255' cy='155' rx='25' ry='10' fill='%233d8c5e' transform='rotate(-15 255 155)'/%3E%3C/svg%3E",
+};
+
 const ANIMALS = [
   {
     id: "aardvark",
     name: "Aardvark",
-    image: "https://loremflickr.com/400/300/aardvark",
     status: "Least Concern",
     statusColor: "#2d8a55",
     description:
@@ -14,7 +23,6 @@ const ANIMALS = [
   {
     id: "rhino",
     name: "White Rhinoceros",
-    image: "https://loremflickr.com/400/300/rhinoceros",
     status: "Near Threatened",
     statusColor: "#c47d0e",
     description:
@@ -24,7 +32,6 @@ const ANIMALS = [
   {
     id: "sea-turtle",
     name: "Leatherback Sea Turtle",
-    image: "https://loremflickr.com/400/300/sea-turtle,ocean",
     status: "Vulnerable",
     statusColor: "#b94444",
     description:
@@ -96,7 +103,7 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
     >
       {/* VIOLATION: image-alt — img with no alt attribute */}
       <img
-        src={animal.image}
+        src={ANIMAL_SVGS[animal.id]}
         style={{ width: "100%", height: "200px", objectFit: "cover", display: "block" }}
       />
 

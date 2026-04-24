@@ -3,7 +3,7 @@ export default function HeroSection() {
     <section style={{ position: "relative", minHeight: "480px", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", background: "#0d2b1a" }}>
       {/* VIOLATION: image-alt — img with no alt attribute */}
       <img
-        src="https://loremflickr.com/1200/480/wildlife,savanna"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='480'%3E%3Crect fill='%23163d28' width='1200' height='480'/%3E%3Ccircle cx='200' cy='300' r='80' fill='%231a4d32'/%3E%3Ccircle cx='600' cy='260' r='120' fill='%231a4d32'/%3E%3Ccircle cx='1000' cy='310' r='90' fill='%231a4d32'/%3E%3C/svg%3E"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5 }}
       />
 

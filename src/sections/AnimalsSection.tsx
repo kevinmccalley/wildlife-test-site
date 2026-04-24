@@ -16,6 +16,7 @@ const ANIMALS = [
     name: "Aardvark",
     status: "Least Concern",
     statusColor: "#2d8a55",
+    statusTextColor: "#1a5c36",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -25,6 +26,7 @@ const ANIMALS = [
     name: "White Rhinoceros",
     status: "Near Threatened",
     statusColor: "#c47d0e",
+    statusTextColor: "#7a4d08",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",
@@ -34,6 +36,7 @@ const ANIMALS = [
     name: "Leatherback Sea Turtle",
     status: "Vulnerable",
     statusColor: "#b94444",
+    statusTextColor: "#6e1212",
     description:
       "The leatherback is the largest turtle in the world, capable of growing over 6 feet long and weighing up to 2,000 lbs. Unlike other sea turtles, it has a leathery shell rather than a hard one. It travels thousands of miles between nesting beaches and feeding grounds.",
     fact: "Leatherbacks can dive deeper than 4,000 feet — deeper than most marine mammals.",
@@ -47,12 +50,14 @@ export default function AnimalsSection() {
         <h2 style={{ textAlign: "center", fontSize: "36px", fontWeight: "800", color: "#1a3a2a", marginBottom: "12px" }}>
           Our Animals
         </h2>
-        <p style={{ textAlign: "center", color: "#4a7060", fontSize: "16px", marginBottom: "24px" }}>
+        <p style={{ textAlign: "center", color: "#1a5c36", fontSize: "16px", marginBottom: "24px" }}>
           Meet the remarkable species we work to protect every day.
         </p>
 
-        {/* VIOLATION: label — select has no associated <label> element */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
+          <label htmlFor="status-filter" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+            Filter by conservation status
+          </label>
           <select
             id="status-filter"
             style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", fontSize: "14px" }}
@@ -70,9 +75,12 @@ export default function AnimalsSection() {
           ))}
         </div>
 
-        {/* VIOLATION: label — search input with no label */}
         <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
+          <label htmlFor="animal-search" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
+            Search animals
+          </label>
           <input
+            id="animal-search"
             type="search"
             placeholder="Search animals..."
             style={{
@@ -101,9 +109,9 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
       }}
     >
-      {/* VIOLATION: image-alt — img with no alt attribute */}
       <img
         src={ANIMAL_SVGS[animal.id]}
+        alt={animal.name}
         style={{ width: "100%", height: "200px", objectFit: "cover", display: "block" }}
       />
 
@@ -119,27 +127,27 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
               padding: "3px 8px",
               borderRadius: "12px",
               background: animal.statusColor + "22",
-              color: animal.statusColor,
+              color: animal.statusTextColor,
             }}
           >
             {animal.status}
           </span>
         </div>
 
-        <p style={{ color: "#4a7060", fontSize: "14px", lineHeight: "1.6", marginBottom: "12px" }}>
+        <p style={{ color: "#1a5c36", fontSize: "14px", lineHeight: "1.6", marginBottom: "12px" }}>
           {animal.description}
         </p>
 
         <div style={{ background: "#f0f7f2", borderRadius: "8px", padding: "10px 12px", marginBottom: "16px" }}>
-          <p style={{ fontSize: "13px", color: "#2d6e48", margin: 0 }}>
+          <p style={{ fontSize: "13px", color: "#1a5c36", margin: 0 }}>
             <strong>Did you know?</strong> {animal.fact}
           </p>
         </div>
 
         <div style={{ display: "flex", gap: "8px" }}>
-          {/* VIOLATION: button-name — button contains only aria-hidden SVG, no accessible label */}
           <button
             onClick={() => setSaved(!saved)}
+            aria-label={saved ? `Unsave ${animal.name}` : `Save ${animal.name}`}
             style={{
               background: saved ? "#2d8a55" : "#f0f7f2",
               border: "none",
@@ -161,7 +169,7 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
               flex: 1,
               display: "inline-block",
               textAlign: "center",
-              background: "#2d8a55",
+              background: "#155c30",
               color: "#fff",
               padding: "8px 16px",
               borderRadius: "6px",

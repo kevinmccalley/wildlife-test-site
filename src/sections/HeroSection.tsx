@@ -25,7 +25,7 @@ export default function HeroSection() {
           <a
             href="/donate"
             style={{ background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px" }}
-          >
+           aria-label="TODO: Describe link destination">
           </a>
         </div>
       </div>

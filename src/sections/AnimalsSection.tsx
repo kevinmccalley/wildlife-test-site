@@ -56,7 +56,7 @@ export default function AnimalsSection() {
           <select
             id="status-filter"
             style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", fontSize: "14px" }}
-          >
+           aria-label="TODO: Add descriptive select label">
             <option value="all">All conservation statuses</option>
             <option value="concern">Least Concern</option>
             <option value="threatened">Near Threatened</option>

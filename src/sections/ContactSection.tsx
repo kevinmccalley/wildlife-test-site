@@ -75,7 +75,7 @@ export default function ContactSection() {
                 width: "100%",
                 boxSizing: "border-box",
               }}
-            >
+             aria-label="TODO: Add descriptive select label">
               <option value="">How would you like to help?</option>
               <option value="volunteer">Volunteer on-site</option>
               <option value="sponsor">Sponsor an animal</option>
@@ -133,7 +133,7 @@ export default function ContactSection() {
                 width="100%"
                 height="200"
                 style={{ border: 0, display: "block" }}
-              />
+               title="TODO: Describe this frame content"/>
             </div>
           </form>
         )}

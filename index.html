@@ -8,9 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wildlife Sanctuary</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0.5rem;
+        background: #fff;
+        color: #000;
+        z-index: 9999;
+      }
+    </style>
   </head>
   <body>
-  <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" onfocus="this.style.cssText='position:static;width:auto;height:auto;padding:0.5rem;background:#fff;color:#000;z-index:9999'">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

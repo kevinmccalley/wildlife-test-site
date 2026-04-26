@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <a
             href="#animals"
-            style={{ background: "#1a6e3f", color: "#fff", padding: "14px 28px", borderRadius: "8px", textDecoration: "none", fontWeight: "600", fontSize: "16px" }}
+            style={{ background: "#145c34", color: "#fff", padding: "14px 28px", borderRadius: "8px", textDecoration: "none", fontWeight: "600", fontSize: "16px" }}
           >
             Meet Our Animals
           </a>

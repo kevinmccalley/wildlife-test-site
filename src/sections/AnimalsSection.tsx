@@ -15,8 +15,9 @@ const ANIMALS = [
     id: "aardvark",
     name: "Aardvark",
     status: "Least Concern",
-    statusColor: "#2d8a55",
-    statusTextColor: "#1a5c35",
+    // Fixed: color-contrast-enhanced — darkened status badge colors for AAA contrast
+    statusBg: "rgba(20, 92, 52, 0.15)",
+    statusTextColor: "#0f3d22",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -25,8 +26,9 @@ const ANIMALS = [
     id: "rhino",
     name: "White Rhinoceros",
     status: "Near Threatened",
-    statusColor: "#c47d0e",
-    statusTextColor: "#7a4d08",
+    // Fixed: color-contrast-enhanced — darkened status badge colors for AAA contrast
+    statusBg: "rgba(122, 60, 0, 0.15)",
+    statusTextColor: "#5a2d00",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",
@@ -35,7 +37,7 @@ const ANIMALS = [
     id: "sea-turtle",
     name: "Leatherback Sea Turtle",
     status: "Vulnerable",
-    statusColor: "#b94444",
+    statusBg: "rgba(122, 28, 28, 0.15)",
     statusTextColor: "#7a1c1c",
     description:
       "The leatherback is the largest turtle in the world, capable of growing over 6 feet long and weighing up to 2,000 lbs. Unlike other sea turtles, it has a leathery shell rather than a hard one. It travels thousands of miles between nesting beaches and feeding grounds.",
@@ -123,14 +125,14 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
           <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1a3a2a", margin: 0 }}>
             {animal.name}
           </h3>
-          {/* Fixed: color-contrast — use darker text color for status badge */}
+          {/* Fixed: color-contrast-enhanced — darkened status badge text and bg for AAA contrast */}
           <span
             style={{
               fontSize: "12px",
               fontWeight: "600",
               padding: "3px 8px",
               borderRadius: "12px",
-              background: animal.statusColor + "22",
+              background: animal.statusBg,
               color: animal.statusTextColor,
             }}
           >
@@ -171,14 +173,14 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
             </svg>
           </button>
 
-          {/* Fixed: color-contrast — use darker background for 'Learn More' link */}
+          {/* Fixed: color-contrast-enhanced — darkened 'Learn More' link background for AAA contrast */}
           <a
             href={`#${animal.id}`}
             style={{
               flex: 1,
               display: "inline-block",
               textAlign: "center",
-              background: "#1a6e3f",
+              background: "#145c34",
               color: "#fff",
               padding: "8px 16px",
               borderRadius: "6px",

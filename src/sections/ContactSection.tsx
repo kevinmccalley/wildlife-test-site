@@ -118,11 +118,11 @@ export default function ContactSection() {
               }}
             />
 
-            {/* Fixed: button-name — added text label to submit button */}
+            {/* Fixed: color-contrast — darkened submit button background from #2d8a55 to #1a6b3f for AA contrast */}
             <button
               type="submit"
               style={{
-                background: "#2d8a55",
+                background: "#145c34",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

@@ -8,7 +8,7 @@ export default function HeroSection() {
       />
 
       {/* Dark overlay to ensure sufficient contrast for text over the background image */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(0, 0, 0, 0.45)" }} aria-hidden="true" />
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0, 0, 0, 0.65)" }} aria-hidden="true" />
 
       <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px", maxWidth: "720px" }}>
         <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px" }}>
@@ -24,11 +24,11 @@ export default function HeroSection() {
           >
             Meet Our Animals
           </a>
-          {/* VIOLATION: link-name — anchor with no text content */}
           <a
             href="/donate"
             style={{ background: "transparent", color: "#fff", padding: "14px 28px", borderRadius: "8px", border: "2px solid #fff", textDecoration: "none", fontWeight: "600", fontSize: "16px" }}
-           aria-label="TODO: Describe link destination">
+            aria-label="Donate to Wildlife Sanctuary">
+            Donate Now
           </a>
         </div>
       </div>

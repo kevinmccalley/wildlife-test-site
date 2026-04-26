@@ -26,7 +26,6 @@ export default function ContactSection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {/* VIOLATION: label — input with no associated label (placeholder only) */}
             <label htmlFor="contact-name" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
               Your full name
             </label>
@@ -48,7 +47,6 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: label — input with no associated label (placeholder only) */}
             <label htmlFor="contact-email" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
               Email address
             </label>
@@ -70,7 +68,6 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: label — select with no associated label */}
             <label htmlFor="contact-interest" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
               How would you like to help?
             </label>
@@ -95,7 +92,6 @@ export default function ContactSection() {
               <option value="media">Media & press inquiry</option>
             </select>
 
-            {/* VIOLATION: label — textarea with no associated label (placeholder only) */}
             <label htmlFor="contact-message" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
               Your message
             </label>
@@ -117,11 +113,10 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: button-name — submit button contains only an SVG with no text or aria-label */}
             <button
               type="submit"
               style={{
-                background: "#2d8a55",
+                background: "#1a6b3f",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

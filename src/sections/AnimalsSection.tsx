@@ -16,7 +16,7 @@ const ANIMALS = [
     name: "Aardvark",
     status: "Least Concern",
     statusColor: "#2d8a55",
-    statusTextColor: "#1a5c35",
+    statusTextColor: "#14472b",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -26,7 +26,7 @@ const ANIMALS = [
     name: "White Rhinoceros",
     status: "Near Threatened",
     statusColor: "#c47d0e",
-    statusTextColor: "#7a4d00",
+    statusTextColor: "#5a3500",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",
@@ -54,7 +54,6 @@ export default function AnimalsSection() {
           Meet the remarkable species we work to protect every day.
         </p>
 
-        {/* VIOLATION: label — select has no associated <label> element */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "32px" }}>
           <label htmlFor="status-filter" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
             Filter by conservation status
@@ -76,7 +75,6 @@ export default function AnimalsSection() {
           ))}
         </div>
 
-        {/* VIOLATION: label — search input with no label */}
         <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
           <label htmlFor="animal-search" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap", border: 0 }}>
             Search animals
@@ -111,7 +109,6 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
       }}
     >
-      {/* VIOLATION: image-alt — img with no alt attribute */}
       <img
         src={ANIMAL_SVGS[animal.id]}
         alt={animal.name}
@@ -148,7 +145,6 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         </div>
 
         <div style={{ display: "flex", gap: "8px" }}>
-          {/* VIOLATION: button-name — button contains only aria-hidden SVG, no accessible label */}
           <button
             onClick={() => setSaved(!saved)}
             aria-label={saved ? `Remove ${animal.name} from saved` : `Save ${animal.name}`}

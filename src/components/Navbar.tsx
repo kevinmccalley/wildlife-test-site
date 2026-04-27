@@ -74,7 +74,14 @@ export default function Navbar() {
         </div>
 
         {menuOpen && (
-          <div style={{ position: "absolute", top: "64px", right: "24px", background: "#1a3a2a", padding: "16px", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px", zIndex: 10 }}>
+          <div
+            style={{ position: "absolute", top: "64px", right: "24px", background: "#1a3a2a", padding: "16px", borderRadius: "8px", display: "flex", flexDirection: "column", gap: "12px", zIndex: 10 }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setMenuOpen(false);
+              }
+            }}
+          >
             <a href="#animals" style={{ color: "#cde8d8" }}>Animals</a>
             <a href="#contact" style={{ color: "#cde8d8" }}>Contact Us</a>
 

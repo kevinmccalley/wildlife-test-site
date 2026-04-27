@@ -117,11 +117,11 @@ export default function ContactSection() {
               }}
             />
 
-            {/* Fixed: added text label to submit button alongside SVG icon */}
+            {/* Fixed: added text label to submit button alongside SVG icon; darkened background for AA contrast */}
             <button
               type="submit"
               style={{
-                background: "#2d8a55",
+                background: "#1a5c38",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",

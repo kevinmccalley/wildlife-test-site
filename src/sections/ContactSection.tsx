@@ -105,7 +105,7 @@ export default function ContactSection() {
               type="submit"
               aria-label="Send message"
               style={{
-                background: "#1f6b3f",
+                background: "#0a4020",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",
@@ -134,6 +134,8 @@ export default function ContactSection() {
                 width="100%"
                 height="200"
                 style={{ border: 0, display: "block" }}
+                title="Map showing our sanctuary location"
+                tabIndex={-1}
               />
             </div>
           </form>

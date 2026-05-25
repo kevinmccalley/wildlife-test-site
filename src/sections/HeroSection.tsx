@@ -8,10 +8,10 @@ export default function HeroSection() {
       />
 
       <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px", maxWidth: "720px" }}>
-        <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px" }}>
+        <h1 style={{ color: "#fff", fontSize: "48px", fontWeight: "900", margin: "0 0 16px", textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>
           Protecting Wildlife, One Species at a Time
         </h1>
-        <p style={{ color: "#cde8d8", fontSize: "18px", lineHeight: "1.6", marginBottom: "32px" }}>
+        <p style={{ color: "#ffffff", fontSize: "18px", lineHeight: "1.6", marginBottom: "32px", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>
           We rescue, rehabilitate, and advocate for endangered animals across Africa and the world's oceans.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>

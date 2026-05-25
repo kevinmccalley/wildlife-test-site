@@ -101,11 +101,11 @@ export default function ContactSection() {
               }}
             />
 
-            {/* VIOLATION: button-name — submit button contains only an SVG with no text or aria-label */}
             <button
               type="submit"
+              aria-label="Send message"
               style={{
-                background: "#2d8a55",
+                background: "#1f6b3f",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",
@@ -119,10 +119,11 @@ export default function ContactSection() {
                 gap: "8px",
               }}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
+              <span>Send</span>
             </button>
 
             {/* VIOLATION: frame-title — iframe embedded with no title attribute */}

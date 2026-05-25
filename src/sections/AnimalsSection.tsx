@@ -15,7 +15,7 @@ const ANIMALS = [
     id: "aardvark",
     name: "Aardvark",
     status: "Least Concern",
-    statusColor: "#2d8a55",
+    statusColor: "#1f6b3f",
     description:
       "The aardvark is a nocturnal mammal native to Africa. Despite its pig-like snout and rabbit-like ears, it is the only living species in its order. It digs burrows with powerful claws and feeds almost exclusively on ants and termites.",
     fact: "An aardvark can eat up to 50,000 insects in a single night.",
@@ -24,7 +24,7 @@ const ANIMALS = [
     id: "rhino",
     name: "White Rhinoceros",
     status: "Near Threatened",
-    statusColor: "#c47d0e",
+    statusColor: "#8a560a",
     description:
       "The white rhinoceros is the largest rhino species and the second-largest land mammal on Earth. Found in southern Africa, it is a grazer that lives in grasslands and savanna. Its horn is made of keratin — the same protein as human fingernails.",
     fact: "Rhinos can run up to 30 mph (48 km/h) despite weighing over 5,000 lbs.",
@@ -118,8 +118,9 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
               fontWeight: "600",
               padding: "3px 8px",
               borderRadius: "12px",
-              background: animal.statusColor + "22",
+              background: "#fff",
               color: animal.statusColor,
+              border: `1px solid ${animal.statusColor}`,
             }}
           >
             {animal.status}
@@ -137,11 +138,12 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
         </div>
 
         <div style={{ display: "flex", gap: "8px" }}>
-          {/* VIOLATION: button-name — button contains only aria-hidden SVG, no accessible label */}
           <button
             onClick={() => setSaved(!saved)}
+            aria-label={saved ? `Remove ${animal.name} from favorites` : `Save ${animal.name} to favorites`}
+            aria-pressed={saved}
             style={{
-              background: saved ? "#2d8a55" : "#f0f7f2",
+              background: saved ? "#1f6b3f" : "#f0f7f2",
               border: "none",
               borderRadius: "6px",
               padding: "8px 10px",
@@ -150,18 +152,19 @@ function AnimalCard({ animal }: { animal: typeof ANIMALS[0] }) {
               alignItems: "center",
             }}
           >
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill={saved ? "white" : "none"} stroke={saved ? "white" : "#2d6e48"} strokeWidth="2">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill={saved ? "white" : "none"} stroke={saved ? "white" : "#1f4d33"} strokeWidth="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
           </button>
 
           <a
             href={`#${animal.id}`}
+            aria-label={`Learn more about ${animal.name}`}
             style={{
               flex: 1,
               display: "inline-block",
               textAlign: "center",
-              background: "#2d8a55",
+              background: "#1f6b3f",
               color: "#fff",
               padding: "8px 16px",
               borderRadius: "6px",
